@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+<!-- 配置 -->
+<configuration>
+	<!-- 多个环境 -->
+	<environments default="development">
+		<!-- 
+		environment:一个环境 
+		id:给该环境取一个标识符-->
+		<environment id="development">
+			<!-- 事务管理： 使用JDBC自带的-->
+			<transactionManager type="JDBC" />
+			<!-- dataSource:数据源，POOLED就是数据源的一个默认实例 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/java16" />
+				<property name="username" value="root" />
+				<property name="password" value="root" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- mappers：映射文件列表 -->
+	<mappers>
+		<!-- mapper：某一个映射 -->
+		<mapper resource="StudentMapper.xml" />
+	</mappers>
+	
+</configuration>
